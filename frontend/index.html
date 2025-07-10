@@ -1,0 +1,23 @@
+#<!-- File: project-nginx/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Hello to you all - from Timur's project-nginx!</h1>
+    <h1 id="quote">PLACE HOLDER: quote of the day from datawire-quote!</h1>
+
+<script>
+  fetch('/quote')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('quote').innerText = data.quote;
+    })
+    .catch(err => {
+      document.getElementById('quote').innerText = 'Error loading quote';
+    });
+</script>
+
+</body>
+</html>

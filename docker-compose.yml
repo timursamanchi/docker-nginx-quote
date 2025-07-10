@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+      platforms: 
+        - linux/amd64
+    ports:
+      - "8081:8080"  # external port 8081 (optional)
